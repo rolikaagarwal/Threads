@@ -1,10 +1,14 @@
 import RightSidebar from "@/components/RightSidebar";
+import Sidebar from "@/components/Header/Sidebar";
+import ThreadCard from "@/components/Header/ThreadCard";
 
 export default function Home() {
   return (
     <main className="relative">
-      <h1>hello</h1>
+      <Sidebar />
       <RightSidebar />
+      <ThreadCard />
     </main>
   );
 }
+
