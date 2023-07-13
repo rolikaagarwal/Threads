@@ -10,44 +10,44 @@ import { Card } from "../ui/card";
 const Sidebar: React.FC = () => {
   return (
     <>
-      <Card className="fixed flex mt-8 w-48 ">
-        <ul className="flex items-center flex-col w-40 py-10">
-          <li className="flex mb-6">
-            <Button variant="ghost">
-              <div className="flex items-center">
-                <AiOutlineHome className="w-6 h-6 mr-2.5" />
+      <Card className="fixed mt-8 w-48 hidden sm:block">
+        <ul className="flex flex-col gap-6 w-full py-10 ml-4">
+          <li>
+            <Button variant="ghost" className="w-40 justify-start">
+              <div className="flex items-center gap-4">
+                <AiOutlineHome size='24px'/>
                 <span >Home</span>
               </div>
             </Button>
           </li>
-          <li className="flex mb-6">
-            <Button variant="ghost">
-              <div className="flex items-center">
-                <AiOutlineSearch className="w-6 h-6 mr-2.5" />
+          <li>
+            <Button variant="ghost" className="w-40 justify-start">
+              <div className="flex items-center gap-4">
+                <AiOutlineSearch size='24px'/>
                 <span >Search</span>
               </div>
             </Button>
           </li>
-          <li className="flex mb-6">
-            <Button variant="ghost">
-              <div className="flex items-center">
-                <AiOutlineWallet className="w-6 h-6 mr-2.5" />
+          <li>
+            <Button variant="ghost" className="w-40 justify-start">
+              <div className="flex items-center gap-4">
+                <AiOutlineWallet size='24px'/>
                 <span>Create</span>
               </div>
             </Button>
           </li>
-          <li className="flex mb-6">
-            <Button variant="ghost">
-              <div className="flex items-center">
-                <AiOutlineHeart className="w-6 h-6 ml-2 mr-2" />
+          <li>
+            <Button variant="ghost" className="w-40 justify-start">
+              <div className="flex items-center gap-4">
+                <AiOutlineHeart size='24px'/>
                 <span >Activity</span>
               </div>
             </Button>
           </li>
-          <li className="flex mb-6">
-            <Button variant="ghost">
-              <div className="flex items-center ">
-                <AiOutlineUser className="w-6 h-6 mr-2.5" />
+          <li>
+            <Button variant="ghost" className="w-40 justify-start">
+              <div className="flex items-center gap-4">
+                <AiOutlineUser size='24px'/>
                 <span>Profile</span>
               </div>
             </Button>
