@@ -7,9 +7,9 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const ThreadCard: React.FC = () => {
   return (
-    <div className="flex m-auto  align-center justify-center border-y w-3/5">
-      <div className=" px-5 relative ">
-        <div className="border absolute left-10 top-16 bottom-16"></div>
+    <div className="border-y">
+      <div className="px-4 relative ">
+        <div className="border absolute left-8 top-20 bottom-16"></div>
         <div className="flex justify-between ">
           <div className="flex ">
             <Avatar className="mt-5 mr-5">
@@ -23,23 +23,11 @@ const ThreadCard: React.FC = () => {
             <span className="mt-5 ml-5 mr-5 cursor-pointer">...</span>
           </div>
         </div>
-        <p className=" ml-16 text-sm">
+        <p className="ml-10 sm:ml-14 text-sm">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste totam
           qui earum laboriosam commodi officia quidem quasi voluptatum officiis
           dicta! Expedita at exercitationem, nulla temporibus autem soluta
           laboriosam molestias doloremque, minus cupiditate quo omnis iusto
-          inventore architecto est reiciendis distinctio vero quasi rerum velit.
-          Fugiat officiis cum doloribus a, tempore veritatis quasi magniLorem
-          ipsum dolor sit amet consectetur adipisicing elit. Iste totam qui
-          earum laboriosam commodi officia quidem quasi voluptatum officiis
-          dicta! Expedita at exercitationem, nulla temporibus autem soluta
-          laboriosam molestias doloremque, minus cupiditate quo omnis iusto
-          inventore architecto est reiciendis distinctio vero quasi rerum velit.
-          Fugiat officiis cum doloribus a, tempore veritatis quasi magniLorem
-          ipsum dolor sit amet consectetur adipisicing elit. Iste totam qui
-          earum laboriosam commodi officia quidem quasi voluptatum officiis
-          dicta! Expedita at exercitationem, nulla temporibus autem soluta
-          laboriosam molestias doloremque, minus cupiditate quo omnis iusto inve
         </p>
         <div className="flex  ml-16 h-10 mt-5 ">
           <AiOutlineHeart className="pr-2 mr-2 text-3xl cursor-pointer" />

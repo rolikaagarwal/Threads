@@ -1,13 +1,11 @@
 import RightSidebar from "@/components/RightSidebar";
-import Sidebar from "@/components/Header/Sidebar";
-import ThreadCard from "@/components/Header/ThreadCard";
+import ThreadFeed from "@/components/ThreadFeed";
 
 export default function Home() {
   return (
-    <main className="relative">
-      <Sidebar />
+    <main className="relative sm:ml-48">
+      <ThreadFeed />
       <RightSidebar />
-      <ThreadCard />
     </main>
   );
 }

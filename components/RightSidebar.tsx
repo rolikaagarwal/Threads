@@ -16,7 +16,7 @@ const RightSidebar: React.FC = async () => {
   const data = await fetch();
   return (
     <>
-      <Card className="absolute border-b border-l top-0 right-0 h-{500px} w-72 hidden md:block">
+      <Card className="absolute border-b border-l top-0 right-0 h-{500px} w-72 hidden lg:block">
         <div className="flex flex-col m-4 gap-2">
           <div className="flex items-center gap-4 ">
             <Avatar className="w-14 h-auto">
