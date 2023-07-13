@@ -10,7 +10,7 @@ import { Card } from "../ui/card";
 const Sidebar: React.FC = () => {
   return (
     <>
-      <Card className="flex mt-8 w-48 ">
+      <Card className="fixed flex mt-8 w-48 ">
         <ul className="flex items-center flex-col w-40 py-10">
           <li className="flex mb-6">
             <Button variant="ghost">

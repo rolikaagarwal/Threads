@@ -7,8 +7,8 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const ThreadCard: React.FC = () => {
   return (
-    <div className="flex m-auto  align-center justify-center border-y w-3/5">
-      <div className=" px-5 relative ">
+    <div className="border-y">
+      <div className="px-5 relative ">
         <div className="border absolute left-10 top-16 bottom-16"></div>
         <div className="flex justify-between ">
           <div className="flex ">
