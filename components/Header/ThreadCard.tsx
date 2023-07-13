@@ -3,20 +3,19 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { FaRegComment } from "react-icons/Fa";
 import { BiRepost } from "react-icons/Bi";
 import { LiaShareSolid } from "react-icons/Lia";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const ThreadCard: React.FC = () => {
   return (
-    <div className="flex m-auto w-1/2 align-center justify-center">
-      <div className=" px-5 shadow-lg shadow-black-light ">
-        <div className="flex justify-between">
-          <div className="flex">
-            <Image
-              src="/UserProfile1.jpg"
-              alt="user profile"
-              width={50}
-              height={50}
-              className="rounded-full mr-3 mt-5"
-            />
+    <div className="flex m-auto  align-center justify-center border-y w-3/5">
+      <div className=" px-5 relative ">
+        <div className="border absolute left-10 top-16 bottom-16"></div>
+        <div className="flex justify-between ">
+          <div className="flex ">
+            <Avatar className="mt-5 mr-5">
+              <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+              <AvatarFallback>CN</AvatarFallback>
+            </Avatar>
             <h6 className="mt-5">rolika_agarwal</h6>
           </div>
           <div className="flex">
@@ -30,7 +29,17 @@ const ThreadCard: React.FC = () => {
           dicta! Expedita at exercitationem, nulla temporibus autem soluta
           laboriosam molestias doloremque, minus cupiditate quo omnis iusto
           inventore architecto est reiciendis distinctio vero quasi rerum velit.
-          Fugiat officiis cum doloribus a, tempore veritatis quasi magni
+          Fugiat officiis cum doloribus a, tempore veritatis quasi magniLorem
+          ipsum dolor sit amet consectetur adipisicing elit. Iste totam qui
+          earum laboriosam commodi officia quidem quasi voluptatum officiis
+          dicta! Expedita at exercitationem, nulla temporibus autem soluta
+          laboriosam molestias doloremque, minus cupiditate quo omnis iusto
+          inventore architecto est reiciendis distinctio vero quasi rerum velit.
+          Fugiat officiis cum doloribus a, tempore veritatis quasi magniLorem
+          ipsum dolor sit amet consectetur adipisicing elit. Iste totam qui
+          earum laboriosam commodi officia quidem quasi voluptatum officiis
+          dicta! Expedita at exercitationem, nulla temporibus autem soluta
+          laboriosam molestias doloremque, minus cupiditate quo omnis iusto inve
         </p>
         <div className="flex  ml-16 h-10 mt-5 ">
           <AiOutlineHeart className="pr-2 mr-2 text-3xl cursor-pointer" />
