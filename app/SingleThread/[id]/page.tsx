@@ -16,7 +16,7 @@ const SingleThread: React.FC<Props> = ({ params }) => {
 
     if (thread) {
       return (
-        <div className="ml-[12rem]">
+        <div className="ml-0 sm:ml-[12rem]">
           <ThreadCard
             id={thread.id}
             caption={thread.caption}
