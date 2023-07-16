@@ -1,13 +1,13 @@
 import { fetchAllThreads, AllThreads } from "@/data/AllThreads";
 import ThreadCard from "@/components/ThreadCard";
-
+import { NextPage } from 'next';
 interface Props {
   params: {
     id: string;
   };
 }
 
-const Thread: React.FC<Props> = ({ params }) => {
+const thread: NextPage<Props>= ({ params }) => {
   const fetchThread = async () => {
     const threads: AllThreads[] = await fetchAllThreads();
     const thread = threads.find((thread) => thread.id === params.id);
@@ -30,4 +30,4 @@ const Thread: React.FC<Props> = ({ params }) => {
   return fetchThread();
 };
 
-export default Thread;
+export default thread;
