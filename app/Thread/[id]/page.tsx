@@ -4,12 +4,10 @@ import ThreadCard from "@/components/ThreadCard";
 interface Props {
   params: {
     id: string;
-    caption: string;
-    userName: string;
   };
 }
 
-const SingleThread: React.FC<Props> = ({ params }) => {
+const Thread: React.FC<Props> = ({ params }) => {
   const fetchThread = async () => {
     const threads: AllThreads[] = await fetchAllThreads();
     const thread = threads.find((thread) => thread.id === params.id);
@@ -32,4 +30,4 @@ const SingleThread: React.FC<Props> = ({ params }) => {
   return fetchThread();
 };
 
-export default SingleThread;
+export default Thread;
