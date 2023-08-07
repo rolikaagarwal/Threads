@@ -15,7 +15,7 @@ const ThreadFeed: React.FC = async () => {
   return (
     <div className="lg:w-[calc(100%-18rem)] w-full">
       {data?.map((thread) => (
-        <Link href={`/Thread/${thread.id}`} key={thread.id}>
+        <Link href={`/thread/${thread.id}`} key={thread.id}>
           <ThreadCard id={thread.id} userName={thread.userName} caption= {thread.caption} />
         </Link>
       ))}
