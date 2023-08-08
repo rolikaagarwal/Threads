@@ -3,7 +3,7 @@ import ThreadFeed from "@/components/ThreadFeed";
 
 export default function Home() {
   return (
-    <main className="relative sm:ml-48">
+    <main className="relative">
       <ThreadFeed />
       <RightSidebar />
     </main>
