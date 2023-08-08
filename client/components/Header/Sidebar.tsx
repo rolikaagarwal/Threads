@@ -11,7 +11,7 @@ import Link from "next/link";
 const Sidebar: React.FC = () => {
   return (
     <>
-      <Card className="fixed mt-8 w-48 hidden sm:block">
+      <Card className="sticky h-96 top-28 mt-8 w-48 hidden sm:block">
         <ul className="flex flex-col gap-6 w-full py-10 ml-4">
           <li>
             <Button variant="ghost" className="w-40 justify-start">
