@@ -12,15 +12,15 @@ datasource db {
 
 model User {
   user_id         String      @id @unique @default(uuid())
-  username        String
-  email           String
+  username        String?
+  email           String      @unique
   name            String
   password        String
-  photo_url       String
-  bio             String      @db.VarChar(50)
-  follower_count  Int
+  photo_url       String?
+  bio             String?     @db.VarChar(50)
+  follower_count  Int         @default(0)
   followers       User[]      @relation(name: "bi-direction_follower")
-  following_count Int
+  following_count Int         @default(0)
   following       User[]      @relation(name: "bi-direction_follower")
   threads         Thread[]
   sub_threads     SubThread[]
