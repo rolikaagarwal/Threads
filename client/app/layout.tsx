@@ -26,7 +26,7 @@ export default function RootLayout({
           <MobileNavigation />
           <div className="flex">
             <Sidebar />
-            <div>{children}</div>
+            <div className='flex grow'>{children}</div>
           </div>
         </ThemeProvider>
       </body>

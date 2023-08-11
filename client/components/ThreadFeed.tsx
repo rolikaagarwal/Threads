@@ -19,6 +19,7 @@ const ThreadFeed: React.FC = async () => {
           <ThreadCard id={thread.id} userName={thread.userName} caption= {thread.caption} />
         </Link>
       ))}
+      
      
     </div>
   );
