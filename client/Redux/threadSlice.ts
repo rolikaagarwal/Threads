@@ -1,26 +1,20 @@
+import { ThreadType } from "@/constants/types";
 import { createSlice } from "@reduxjs/toolkit";
 
-export type AllThreads ={
-  profile_pic: string;
-  userName: string;
-  caption: string;
-  id: string;
-}
-
-const initialState:{threads:AllThreads[]} = {
-  threads: [] as AllThreads[]
+const initialState:{threadsFeed: ThreadType[] } = {
+  threadsFeed: [] as ThreadType[]
 }
 
 export const slice = createSlice({
-  name: 'threads',
+  name: 'thread',
   initialState,
   reducers:{
-    setThreads:(state,action)=>{
-      state.threads = action.payload
+    setThreadsFeed:(state,action)=>{
+      state.threadsFeed = action.payload
     }
   }
 })
 
-export const {setThreads} = slice.actions
+export const {setThreadsFeed} = slice.actions
 
 export default slice.reducer

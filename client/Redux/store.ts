@@ -3,7 +3,7 @@ import ThreadReducer from "./threadSlice";
 
 const store = configureStore({
   reducer:{
-    threads: ThreadReducer
+    thread: ThreadReducer
   }
 })
 
