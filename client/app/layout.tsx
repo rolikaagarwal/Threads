@@ -4,7 +4,8 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import Sidebar from '@/components/Header/Sidebar';
 import MobileNavigation from '@/components/Header/MobileNavigation';
-import { ThemeProvider } from '@/components/ui/theme-provider';
+import { ThemeProvider } from '@/components/Providers/theme-provider';
+import StoreProvider from '@/components/Providers/StoreProvider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -21,14 +22,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <Navbar />
-          <MobileNavigation />
-          <div className="flex">
-            <Sidebar />
-            <div className='flex grow'>{children}</div>
-          </div>
-        </ThemeProvider>
+        <StoreProvider>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            <Navbar />
+            <MobileNavigation />
+            <div className="flex">
+              <Sidebar />
+              <div className="flex grow">{children}</div>
+            </div>
+          </ThemeProvider>
+        </StoreProvider>
       </body>
     </html>
   );

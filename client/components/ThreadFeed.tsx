@@ -1,9 +1,12 @@
+import store from "@/Redux/store";
 import ThreadCard from "./ThreadCard";
 import { fetchAllThreads } from "@/data/AllThreads";
 import Link from "next/link";
+import { setThreads } from "@/Redux/threadSlice";
 const fetch = async () => {
   try {
     const data = await fetchAllThreads();
+    store.dispatch(setThreads(data))
     return data;
   } catch (error) {
     throw error;
@@ -19,8 +22,6 @@ const ThreadFeed: React.FC = async () => {
           <ThreadCard id={thread.id} userName={thread.userName} caption= {thread.caption} />
         </Link>
       ))}
-      
-     
     </div>
   );
 };
