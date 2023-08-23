@@ -1,6 +1,7 @@
-import { fetchAllThreads, AllThreads } from '@/data/AllThreads';
+import { fetchAllThreads } from '@/data/AllThreads';
 import ThreadCard from '@/components/ThreadCard';
 import { NextPage } from 'next';
+import store from '@/Redux/store';
 interface Props {
   params: {
     id: string;
@@ -8,8 +9,9 @@ interface Props {
 }
 
 const Thread: NextPage<Props> = async({ params }) => {
-  const threads: AllThreads[] = await fetchAllThreads();
-  const thread = threads.find((thread) => thread.id === params.id);
+  const threadFeed = store.getState().thread.threadsFeed;
+  const threads = threadFeed.length>0 ? threadFeed : await fetchAllThreads()
+  const thread = threads.find((thread) => thread.id === params.id)
 
   if(thread)
   return (
