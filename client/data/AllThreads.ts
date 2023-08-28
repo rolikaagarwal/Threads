@@ -1,11 +1,7 @@
-export interface AllThreads {
-  profile_pic: string;
-  userName: string;
-  caption: string;
-  id: string;
-}
-export const fetchAllThreads = async (): Promise<AllThreads[]> => {
-  const data: AllThreads[] = [
+import { ThreadType } from "@/constants/types";
+
+export const fetchAllThreads = async (): Promise<ThreadType[]> => {
+  const data: ThreadType[] = [
     {
       userName: "rolika_agarwal",
       id: "1",
