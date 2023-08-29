@@ -6,6 +6,8 @@ import Sidebar from '@/components/Header/Sidebar';
 import MobileNavigation from '@/components/Header/MobileNavigation';
 import { ThemeProvider } from '@/components/Providers/theme-provider';
 import StoreProvider from '@/components/Providers/StoreProvider';
+import { Toaster } from '@/components/ui/toaster';
+import Protected from '@/components/Providers/Protected';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -24,12 +26,8 @@ export default function RootLayout({
       <body className={inter.className}>
         <StoreProvider>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <Navbar />
-            <MobileNavigation />
-            <div className="flex">
-              <Sidebar />
-              <div className="flex grow">{children}</div>
-            </div>
+            <Toaster />
+            {children}
           </ThemeProvider>
         </StoreProvider>
       </body>

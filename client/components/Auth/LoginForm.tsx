@@ -15,6 +15,11 @@ import {
 import { Input } from '@/components/ui/input';
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
+import { LoginFormType } from '@/lib/types';
+
+import { useToast } from '../ui/use-toast';
+import { useState } from 'react';
+import { loginUser } from '@/Redux/userSlice';
 
 const formSchema = z.object({
   username: z.string().min(2, {
@@ -26,14 +31,31 @@ const formSchema = z.object({
 
 export default function LoginForm() {
   const router = useRouter();
-  const onSubmit = async()=>{
-    router.push('/')
-  }
-
-  const form = useForm<z.infer<typeof formSchema>>({
+  const {toast} = useToast();
+  const [isLoading,setIsLoading] = useState<boolean>(false);
+  const form = useForm<LoginFormType>({
+    defaultValues:{
+      username:'',
+      password:''
+    },
     resolver: zodResolver(formSchema),
   });
 
+  const onSubmit = async({username,password}:LoginFormType)=>{
+    setIsLoading(true);
+    try{
+      await loginUser({username,password});
+      router.push('/');
+    } catch(err){
+      if(err instanceof Error){
+        toast({title:"Login Failed",description:err.message})
+      }else{
+        toast({title:"Login Failed"});
+      }
+    } finally{
+      setIsLoading(false);
+    }
+  }
 
   return (
     <Form {...form}>
@@ -45,7 +67,7 @@ export default function LoginForm() {
             <FormItem>
               <FormLabel>Username</FormLabel>
               <FormControl>
-                <Input placeholder="shadcn" {...field} />
+                <Input placeholder="shadcn" {...field}/>
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -64,7 +86,9 @@ export default function LoginForm() {
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <Button type="submit" disabled={isLoading}>
+          {isLoading?'Validating...':'Submit'}
+          </Button>
       </form>
     </Form>
   );

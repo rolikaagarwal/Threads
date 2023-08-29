@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import ThreadReducer from "./threadSlice";
+import UserReducer from './userSlice'
 
 const store = configureStore({
   reducer:{
-    thread: ThreadReducer
+    thread: ThreadReducer,
+    user: UserReducer
   }
 })
 
