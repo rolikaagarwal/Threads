@@ -15,11 +15,11 @@ import {
 import { Input } from '@/components/ui/input';
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
-import { LoginFormType } from '@/lib/types';
+import { SignupFormType } from '@/lib/types';
 
 import { useToast } from '../ui/use-toast';
 import { useState } from 'react';
-import { loginUser } from '@/Redux/userSlice';
+import { createUser, loginUser } from '@/Redux/userSlice';
 import { Card } from '../ui/card';
 
 const formSchema = z.object({
@@ -27,30 +27,34 @@ const formSchema = z.object({
     message: 'Username must be at least 2 characters.',
   }),
   password: z.string(),
+  fullName: z.string().min(2, {
+    message: 'Name must be at least 2 characters.',
+  }),
 });
 
-export default function LoginForm() {
+export default function SignupForm() {
   const router = useRouter();
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const form = useForm<LoginFormType>({
+  const form = useForm<SignupFormType>({
     defaultValues: {
       username: '',
       password: '',
+      fullName: '',
     },
     resolver: zodResolver(formSchema),
   });
 
-  const onSubmit = async ({ username, password }: LoginFormType) => {
+  const onSubmit = async ({ username, password,fullName }: SignupFormType) => {
     setIsLoading(true);
     try {
-      await loginUser({ username, password });
+      await createUser({ username, password,fullName });
       router.push('/');
     } catch (err) {
       if (err instanceof Error) {
-        toast({ title: 'Login Failed', description: err.message });
+        toast({ title: 'Signup Failed', description: err.message });
       } else {
-        toast({ title: 'Login Failed' });
+        toast({ title: 'Signup Failed' });
       }
     } finally {
       setIsLoading(false);
@@ -58,9 +62,22 @@ export default function LoginForm() {
   };
 
   return (
-    <Card className='w-76 px-14 py-14'>
+    <Card className="w-76 px-14 py-14">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+          <FormField
+            control={form.control}
+            name="fullName"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Full Name</FormLabel>
+                <FormControl>
+                  <Input placeholder="Name" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
           <FormField
             control={form.control}
             name="username"
@@ -68,7 +85,7 @@ export default function LoginForm() {
               <FormItem>
                 <FormLabel>Username</FormLabel>
                 <FormControl>
-                  <Input placeholder="shadcn" {...field} />
+                  <Input placeholder="Username" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>

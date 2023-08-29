@@ -11,3 +11,9 @@ export type LoginFormType = {
   username: string
   password: string
 }
+
+export type SignupFormType = {
+  username: string
+  password: string
+  fullName: string
+} 

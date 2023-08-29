@@ -1,6 +1,6 @@
 import { post } from '@/lib/apiFunctions';
-import { LOGIN_URL } from '@/lib/endpoints';
-import { LoginFormType } from '@/lib/types';
+import { LOGIN_URL, SIGNUP_URL } from '@/lib/endpoints';
+import { LoginFormType, SignupFormType } from '@/lib/types';
 import { createSlice } from '@reduxjs/toolkit';
 
 export const slice = createSlice({
@@ -30,6 +30,20 @@ export const loginUser = async({ username, password }:LoginFormType) => {
     if (!response.ok) {
       const errorData = await response.json();
       throw new Error(errorData.error || 'Login failed');
+    }
+    const user = await response.json();
+    
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const createUser = async({ username, password,fullName }:SignupFormType) => {
+  try {
+    const response = await post(SIGNUP_URL,{email:username,password,fullName})
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.error || 'Signup failed');
     }
     const user = await response.json();
     
