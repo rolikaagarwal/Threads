@@ -21,6 +21,7 @@ import { useToast } from '../ui/use-toast';
 import { useState } from 'react';
 import { createUser, loginUser } from '@/Redux/userSlice';
 import { Card } from '../ui/card';
+import Link from 'next/link';
 
 const formSchema = z.object({
   username: z.string().min(2, {
@@ -64,7 +65,7 @@ export default function SignupForm() {
   return (
     <Card className="w-76 px-14 py-14">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 flex flex-col">
           <FormField
             control={form.control}
             name="fullName"
@@ -104,6 +105,7 @@ export default function SignupForm() {
               </FormItem>
             )}
           />
+          <Link href='/auth/login' className=' text-sm hover:underline underline-offset-4'>Login to your Account</Link>
           <Button type="submit" disabled={isLoading}>
             {isLoading ? 'Validating...' : 'Submit'}
           </Button>
