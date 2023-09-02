@@ -2,6 +2,7 @@ import { fetchAllThreads } from '@/data/AllThreads';
 import ThreadCard from '@/components/ThreadCard';
 import { NextPage } from 'next';
 import store from '@/Redux/store';
+import Loader from '@/app/loading';
 interface Props {
   params: {
     id: string;

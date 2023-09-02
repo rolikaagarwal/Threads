@@ -37,7 +37,8 @@ export const signUpController = async (req: Request, res: Response) => {
       process.env.SECRET_KEY!,
       { expiresIn: "30d" }
     );
-    res.status(201).json({ token: token });
+    res.cookie("accessToken", token, { path: "/", httpOnly: true });
+    res.status(200).json({ message: "access token generated sucessfully!" });
   } catch (error) {
     res.status(500).json(error);
   }

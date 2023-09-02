@@ -2,10 +2,9 @@ import Navbar from '@/components/Header/Navbar';
 import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import Sidebar from '@/components/Header/Sidebar';
-import MobileNavigation from '@/components/Header/MobileNavigation';
 import { ThemeProvider } from '@/components/Providers/theme-provider';
 import StoreProvider from '@/components/Providers/StoreProvider';
+import { Toaster } from '@/components/ui/toaster';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -24,12 +23,9 @@ export default function RootLayout({
       <body className={inter.className}>
         <StoreProvider>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            <Toaster />
             <Navbar />
-            <MobileNavigation />
-            <div className="flex">
-              <Sidebar />
-              <div className="flex grow">{children}</div>
-            </div>
+            {children}
           </ThemeProvider>
         </StoreProvider>
       </body>

@@ -1,4 +1,4 @@
-import { ThreadType } from "@/constants/types";
+import { ThreadType } from "@/lib/types";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState:{threadsFeed: ThreadType[] } = {
